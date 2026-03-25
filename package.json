@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "mongodb": "^7.1.1"
+  },
+  "name": "raisha_portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayshathraisha07-rgb/Raisha_first.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ayshathraisha07-rgb/Raisha_first/issues"
+  },
+  "homepage": "https://github.com/ayshathraisha07-rgb/Raisha_first#readme"
+}
