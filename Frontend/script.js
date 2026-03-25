@@ -21,71 +21,92 @@ window.addEventListener('scroll', () => {
 
 // ===== GSAP Animations =====
 document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap !== 'undefined') {
+
+    // Helper: set initial hidden state via JS (so no-JS = always visible)
+    function hideForAnimation(selector, props) {
+        document.querySelectorAll(selector).forEach(el => {
+            if (props.opacity !== undefined) el.style.opacity = props.opacity;
+            if (props.y !== undefined) el.style.transform = `translateY(${props.y}px)`;
+            if (props.x !== undefined) el.style.transform = `translateX(${props.x}px)`;
+        });
+    }
+
+    // Universal fallback: make everything visible
+    function showAll() {
+        const allTargets = '.gsap-reveal, .project-card, .timeline-item';
+        document.querySelectorAll(allTargets).forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+    }
+
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        showAll();
+        return;
+    }
+
+    try {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Entrance Animation
+        // ── Hero Entrance (no ScrollTrigger needed, plays on load) ──
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.from(".nav-brand",    { y: -40, opacity: 0, duration: 0.7 })
-          .from(".nav-links li", { y: -40, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.5")
-          .from(".greeting",     { x: -40, opacity: 0, duration: 0.6 }, "-=0.4")
-          .from(".hero-name",    { x: -50, opacity: 0, duration: 0.8 }, "-=0.4")
-          .from(".tagline",      { y: 20,  opacity: 0, duration: 0.6 }, "-=0.4")
-          .from(".hero-cta .btn",{ scale: 0.85, opacity: 0, duration: 0.5, stagger: 0.15, ease: "back.out(1.7)" }, "-=0.4")
-          .from(".profile-ring", { rotate: -8, scale: 0.85, opacity: 0, duration: 1, ease: "elastic.out(1, 0.6)" }, "-=0.7")
+        tl.from(".nav-brand",     { y: -40, opacity: 0, duration: 0.7 })
+          .from(".nav-links li",  { y: -40, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.5")
+          .from(".greeting",      { x: -40, opacity: 0, duration: 0.6 }, "-=0.4")
+          .from(".hero-name",     { x: -50, opacity: 0, duration: 0.8 }, "-=0.4")
+          .from(".tagline",       { y: 20,  opacity: 0, duration: 0.6 }, "-=0.4")
+          .from(".hero-cta .btn", { scale: 0.85, opacity: 0, duration: 0.5, stagger: 0.15, ease: "back.out(1.7)" }, "-=0.4")
+          .from(".profile-ring",  { rotate: -8, scale: 0.85, opacity: 0, duration: 1, ease: "elastic.out(1, 0.6)" }, "-=0.7")
           .from(".floating-badge",{ y: 20, opacity: 0, duration: 0.5, stagger: 0.2 }, "-=0.4");
 
-        // Scroll-triggered animations for all gsap-reveal elements
+        // ── gsap-reveal sections (About, Contact) ──
+        // CSS already sets these to opacity:0 / translateY(40px), GSAP animates TO visible
         gsap.utils.toArray('.gsap-reveal').forEach(el => {
             gsap.to(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 88%",
-                    toggleActions: "play none none none"
-                },
-                y: 0,
-                opacity: 1,
-                duration: 0.75,
-                ease: "power2.out"
+                scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
+                y: 0, opacity: 1, duration: 0.75, ease: "power2.out"
             });
         });
 
-        // Stagger timeline items
+        // ── Timeline items — set hidden via JS, then animate TO visible ──
         gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-            gsap.from(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: "top 88%",
-                    toggleActions: "play none none none"
-                },
-                x: item.classList.contains('right') ? 50 : -50,
-                opacity: 0,
+            const isRight = item.classList.contains('right');
+            // Set initial state via JS (safe — no-JS keeps them visible)
+            item.style.opacity = '0';
+            item.style.transform = `translateX(${isRight ? 50 : -50}px)`;
+
+            gsap.to(item, {
+                scrollTrigger: { trigger: item, start: "top 88%", toggleActions: "play none none none" },
+                x: 0, opacity: 1,
                 duration: 0.7,
                 ease: "power2.out",
                 delay: i * 0.1
             });
         });
 
-        // Project cards stagger
-        gsap.from('.project-card', {
-            scrollTrigger: {
-                trigger: '.projects-grid',
-                start: "top 85%",
-                toggleActions: "play none none none"
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out"
+        // ── Project cards — set hidden via JS, then animate TO visible ──
+        document.querySelectorAll('.project-card').forEach((card, i) => {
+            // Set initial state via JS (safe — no-JS keeps them visible)
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+
+            gsap.to(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                y: 0, opacity: 1,
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: "power2.out"
+            });
         });
 
-    } else {
-        // Fallback: if GSAP fails to load, make all elements visible immediately
-        document.querySelectorAll('.gsap-reveal').forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'none';
-        });
+    } catch (err) {
+        console.warn('GSAP animation error:', err);
+        showAll();
     }
 });
 
