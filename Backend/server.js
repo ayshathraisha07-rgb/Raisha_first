@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,10 +10,22 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Path to your data file
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('MongoDB connection error:', err));
+
+const contactSchema = new mongoose.Schema({
+    name: String,
+    age: String,
+    email: String,
+    message: String,
+    date: { type: Date, default: Date.now }
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+
 const dataPath = path.join(__dirname, 'data.json');
 
-// 1. GET Route: To send portfolio data to the frontend
 app.get('/api/portfolio', (req, res) => {
     fs.readFile(dataPath, 'utf8', (err, data) => {
         if (err) {
@@ -23,19 +36,28 @@ app.get('/api/portfolio', (req, res) => {
     });
 });
 
-// 2. POST Route: To receive and save contact form submissions
-app.post('/api/portfolio', (req, res) => {
-    const { name, age, email, message } = req.body;
+app.post('/api/portfolio', async (req, res) => {
+    try {
+        const { name, age, email, message } = req.body;
 
-    // Log the data to the console (you'll see this in your Render logs)
-    console.log('New Contact Submission:', { name, age, email, message });
+        const newContact = new Contact({
+            name,
+            age,
+            email,
+            message
+        });
 
-    // Optional: You can append this data to a file or database here.
-    // For now, we return a success response.
-    res.status(201).json({
-        message: 'Submission successful!',
-        receivedData: { name, email }
-    });
+        await newContact.save();
+        console.log('New Contact Submission saved to MongoDB:', { name, age, email, message });
+
+        res.status(201).json({
+            message: 'Submission successful!',
+            receivedData: { name, email }
+        });
+    } catch (error) {
+        console.error('Error saving to database:', error);
+        res.status(500).json({ error: 'Failed to save message' });
+    }
 });
 
 app.listen(PORT, () => {
