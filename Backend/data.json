@@ -1,0 +1,49 @@
+{
+  "name": "Ayshath Raisha",
+  "tagline": "Creative Mind, Passionate Learner, and Innovator",
+  "about": "I am a dedicated student with a deep interest in blending creativity with technical knowledge. Through my academic journey, I have developed a strong foundation in problem-solving and critical thinking.",
+  "college": {
+    "name": "Eminent University",
+    "degree": "Pursuing Bachelor's Degree",
+    "details": "Actively involved in various academic and extracurricular activities, constantly pushing the boundaries of learning."
+  },
+  "achievements": [
+    {
+      "title": "Academic Excellence Award",
+      "year": "2024",
+      "description": "Recognized for outstanding academic performance and dedication."
+    },
+    {
+      "title": "Hackathon Winner",
+      "year": "2023",
+      "description": "Secured first place in the annual college tech competition."
+    },
+    {
+      "title": "Creative Arts Scholarship",
+      "year": "2022",
+      "description": "Awarded for exceptional creative projects and artistic vision."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Digital Art Collage",
+      "description": "A collection of stunning visual arts combining modern tech themes with traditional aesthetics.",
+      "tags": ["Design", "Art", "Photoshop", "Collage"]
+    },
+    {
+      "title": "Data Analysis Dashboard",
+      "description": "A comprehensive dashboard for visualizing complex datasets efficiently.",
+      "tags": ["Analytics", "Data", "UX/UI"]
+    },
+    {
+      "title": "Community Outreach Platform",
+      "description": "A web platform built to connect volunteers with local community initiatives.",
+      "tags": ["Web", "Community", "Development"]
+    }
+  ],
+  "contact": {
+    "email": "ayshath.raisha@example.com",
+    "linkedin": "linkedin.com/in/ayshathraisha",
+    "github": "github.com/ayshathraisha"
+  }
+}

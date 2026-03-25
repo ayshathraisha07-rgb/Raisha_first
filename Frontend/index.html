@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayshath Raisha | Portfolio</title>
+    <meta name="description" content="Portfolio of Ayshath Raisha - Creative Mind, Passionate Learner, and Innovator.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Background Animation Elements -->
+    <div class="bg-gradient"></div>
+    <div class="glass-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">AR.</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#projects">Work &amp; Collage</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <p class="greeting">✨ Hello, I am</p>
+                <h1 id="hero-name" class="hero-name">Ayshath Raisha</h1>
+                <p id="hero-tagline" class="tagline">Creative Mind, Passionate Learner, and Innovator</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-eye"></i> View My Work</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Get in
+                        Touch</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="profile-ring">
+                    <div class="profile-placeholder">
+                        <h2>AR</h2>
+                    </div>
+                </div>
+                <div class="floating-badge badge-1"><i class="fa-solid fa-star"></i> Top Student</div>
+                <div class="floating-badge badge-2"><i class="fa-solid fa-palette"></i> Creative</div>
+            </div>
+        </section>
+
+        <!-- About & College Section -->
+        <section id="about" class="about-section glass-panel gsap-reveal">
+            <div class="section-title">
+                <h2>About <span class="highlight">Me</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p id="about-desc">I am a dedicated student with a deep interest in blending creativity with
+                        technical knowledge. Through my academic journey, I have developed a strong foundation in
+                        problem-solving and critical thinking.</p>
+                    <div class="college-info" id="college-info">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                        <p class="college-name" id="college-name">Eminent University</p>
+                        <p class="degree" id="college-degree">Pursuing Bachelor's Degree - Actively involved in various
+                            academic and extracurricular activities, constantly pushing the boundaries of learning.</p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <span class="stat-label">Dedicated Student</span>
+                            <span class="stat-sub">Academic Excellence</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-palette"></i>
+                        <div>
+                            <span class="stat-label">Creative Thinker</span>
+                            <span class="stat-sub">Art &amp; Design</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div>
+                            <span class="stat-label">Award Winner</span>
+                            <span class="stat-sub">Multiple Accolades</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-green"></i>
+                        <div>
+                            <span class="stat-label">Innovator</span>
+                            <span class="stat-sub">Problem Solver</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Achievements Section -->
+        <section id="achievements" class="achievements-section">
+            <div class="section-title">
+                <h2>Academic <span class="highlight">Achievements</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="timeline" id="achievements-timeline">
+                <!-- Timeline items injected by script -->
+                <div class="timeline-item left gsap-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fa-solid fa-calendar-days"></i> 2024</div>
+                        <h3>Academic Excellence Award</h3>
+                        <p>Recognized for outstanding academic performance and dedication to studies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right gsap-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fa-solid fa-calendar-days"></i> 2023</div>
+                        <h3>Hackathon Winner</h3>
+                        <p>Secured first place in the annual college tech competition.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left gsap-reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-date"><i class="fa-solid fa-calendar-days"></i> 2022</div>
+                        <h3>Creative Arts Scholarship</h3>
+                        <p>Awarded for exceptional creative projects and artistic vision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / Various Things Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-title">
+                <h2>Collage &amp; <span class="highlight">Various Things</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Project cards injected by script -->
+                <div class="project-card gsap-reveal">
+                    <div class="project-icon"><i class="fa-solid fa-image"></i></div>
+                    <h3 class="project-title">Digital Art Collage</h3>
+                    <p>A collection of stunning visual arts combining modern tech themes with traditional aesthetics.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">Art</span>
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Collage</span>
+                    </div>
+                </div>
+                <div class="project-card gsap-reveal">
+                    <div class="project-icon"><i class="fa-solid fa-chart-bar"></i></div>
+                    <h3 class="project-title">Data Analysis Dashboard</h3>
+                    <p>A comprehensive dashboard for visualizing complex datasets efficiently.</p>
+                    <div class="project-tags">
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Data</span>
+                        <span class="tag">UX/UI</span>
+                    </div>
+                </div>
+                <div class="project-card gsap-reveal">
+                    <div class="project-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="project-title">Community Outreach Platform</h3>
+                    <p>A web platform built to connect volunteers with local community initiatives.</p>
+                    <div class="project-tags">
+                        <span class="tag">Web</span>
+                        <span class="tag">Community</span>
+                        <span class="tag">Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Form -->
+        <section id="contact" class="contact-section gsap-reveal">
+            <div class="section-title">
+                <h2>Let's <span class="highlight">Connect</span></h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="contact-wrapper">
+                <!-- Contact Info Side -->
+                <div class="contact-info">
+                    <p class="contact-intro">Always open to new opportunities, creative collaborations, and learning
+                        experiences. Feel free to reach out!</p>
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>ayshath.raisha@example.com</span>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>linkedin.com/in/ayshathraisha</span>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fa-brands fa-github"></i>
+                            <span>github.com/ayshathraisha</span>
+                        </div>
+                    </div>
+                    <div class="social-links" id="social-links">
+                        <a href="mailto:ayshath.raisha@example.com" class="social-icon" title="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/ayshathraisha" target="_blank" class="social-icon"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/ayshathraisha" target="_blank" class="social-icon" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="formName"><i class="fa-solid fa-user"></i> Full Name</label>
+                            <input type="text" id="formName" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formAge"><i class="fa-solid fa-cake-candles"></i> Age</label>
+                            <input type="number" id="formAge" name="age" placeholder="Your age" min="1" max="120"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                            <input type="email" id="formEmail" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage"><i class="fa-solid fa-message"></i> Message</label>
+                            <textarea id="formMessage" name="message" placeholder="Write your message here..." rows="5"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Send Message</span>
+                            <span class="btn-loader" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i>
+                                Sending...</span>
+                        </button>
+                    </form>
+                    <div id="formSuccess" class="form-success" style="display:none;">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. I'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">AR.</div>
+            <p>&copy; 2026 Ayshath Raisha. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#projects">Work</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
