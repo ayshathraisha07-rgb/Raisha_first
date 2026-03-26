@@ -371,24 +371,13 @@ section {
     100% { background: linear-gradient(145deg, var(--primary-color), var(--secondary-color), var(--accent-color)); }
 }
 
-.profile-placeholder {
+.profile-photo {
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, rgba(139,92,246,0.12), rgba(3,7,18,0.95));
+    object-fit: cover;
+    object-position: center top;
     border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-placeholder h2 {
-    font-size: 7rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    font-family: var(--font-heading);
+    display: block;
 }
 
 .floating-badge {
@@ -861,7 +850,7 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input[type="number"] { -moz-appearance: textfield; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 
 .form-success {
     text-align: center;
