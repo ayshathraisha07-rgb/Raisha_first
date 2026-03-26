@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ── Hero Entrance (no ScrollTrigger needed, plays on load) ──
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.from(".nav-brand",     { y: -40, opacity: 0, duration: 0.7 })
-          .from(".nav-links li",  { y: -40, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.5")
-          .from(".greeting",      { x: -40, opacity: 0, duration: 0.6 }, "-=0.4")
-          .from(".hero-name",     { x: -50, opacity: 0, duration: 0.8 }, "-=0.4")
-          .from(".tagline",       { y: 20,  opacity: 0, duration: 0.6 }, "-=0.4")
-          .from(".hero-cta .btn", { scale: 0.85, opacity: 0, duration: 0.5, stagger: 0.15, ease: "back.out(1.7)" }, "-=0.4")
-          .from(".profile-ring",  { rotate: -8, scale: 0.85, opacity: 0, duration: 1, ease: "elastic.out(1, 0.6)" }, "-=0.7")
-          .from(".floating-badge",{ y: 20, opacity: 0, duration: 0.5, stagger: 0.2 }, "-=0.4");
+        tl.from(".nav-brand", { y: -40, opacity: 0, duration: 0.7 })
+            .from(".nav-links li", { y: -40, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.5")
+            .from(".greeting", { x: -40, opacity: 0, duration: 0.6 }, "-=0.4")
+            .from(".hero-name", { x: -50, opacity: 0, duration: 0.8 }, "-=0.4")
+            .from(".tagline", { y: 20, opacity: 0, duration: 0.6 }, "-=0.4")
+            .from(".hero-cta .btn", { scale: 0.85, opacity: 0, duration: 0.5, stagger: 0.15, ease: "back.out(1.7)" }, "-=0.4")
+            .from(".profile-ring", { rotate: -8, scale: 0.85, opacity: 0, duration: 1, ease: "elastic.out(1, 0.6)" }, "-=0.7")
+            .from(".floating-badge", { y: 20, opacity: 0, duration: 0.5, stagger: 0.2 }, "-=0.4");
 
         // ── gsap-reveal sections (About, Contact) ──
         // CSS already sets these to opacity:0 / translateY(40px), GSAP animates TO visible
